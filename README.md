@@ -23,7 +23,7 @@
 // please do chmod 400 for the key
 // use this robotics passphrase for the key password.
 1. user$ git clone git@github.com:paupawsan/ros-sensory-simulator.git
-Or just download the project here
+Or just download the project here https://www.dropbox.com/s/2dl87wqwccuw6ws/ros-sensory-simulator.zip?dl=0
 
 
 // Change directory to ros-sensory-simulator
