@@ -22,16 +22,17 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 *******************************************************************************/
+
 using System;
 using System.Reflection;
 using ROSCore.Data;
 using ROSCore.System;
 
-namespace AnalogOneSensor
+namespace DigitalSensor
 {
-    public class WaveDetectorSensor : IDeviceStatus
+    public class DigitalSensor : IDeviceStatus
     {
-        const int DATA_UPDATE_FREQUENCY = 20000;
+        const int DATA_UPDATE_FREQUENCY = 12000;
         private PortMemoryBlock allocatedPortMemory;
         
         /// <summary>
@@ -50,7 +51,7 @@ namespace AnalogOneSensor
             Console.WriteLine("_pLog_ {0} [{1}@{2}] {3}", DateTime.UtcNow.Ticks, this.GetType(),
                               MethodBase.GetCurrentMethod().ToString(), string.Format("{0}", "Shutdown"));
         }
-
+        
         /// <summary>
         /// This will be virtually called by System Board.
         /// </summary>
@@ -61,9 +62,10 @@ namespace AnalogOneSensor
             //                   MethodBase.GetCurrentMethod().ToString(), string.Format("Clock counter:{0}", counter));
             if (counter % DATA_UPDATE_FREQUENCY == 0)
             {
-                allocatedPortMemory.AnalogIn = MathF.Sin(counter);
-                allocatedPortMemory.DirtyTypes[(int) PortMemoryBlock.DirtyTypeEnum.AnalogIn] = true;
-                Console.WriteLine(string.Format("WaveDetector WriteData: portID:{0} data:{1} of AnalogIn", allocatedPortMemory.PortID, allocatedPortMemory.AnalogIn));
+                Random rnd = new System.Random();
+                allocatedPortMemory.DigitalIn = rnd.Next(0, Int32.MaxValue);
+                allocatedPortMemory.DirtyTypes[(int) PortMemoryBlock.DirtyTypeEnum.DigitalIn] = true;
+                Console.WriteLine(string.Format("DigitalSensor WriteData: portID:{0} data:{1} of DigitalIn", allocatedPortMemory.PortID, allocatedPortMemory.DigitalIn));
             }
         }
     }

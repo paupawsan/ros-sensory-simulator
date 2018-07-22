@@ -43,6 +43,7 @@ namespace ROSBoard
 
         private bool isStarting     = false;
         private bool isShuttingDown = false;
+        private bool isRunning = false;
 
         private bool  isScanNewDevices = false;
         public  ulong CurrentClockCounter { get; private set; } = 0;
@@ -62,6 +63,25 @@ namespace ROSBoard
             CurrentClockCounter = 0;
             internalDeviceScanCounter = 0;
             internalCounter = 0;
+            isScanNewDevices = false;
+            isStarting = false;
+            isShuttingDown = false;
+            isRunning = false;
+        }
+
+        private void CleanUp()
+        {
+            ActiveMemoryBlock = null;
+            registeredDevices.Clear();
+            registeredDevices = null;
+            registeredDevicesType.Clear();
+            registeredDevicesType = null;
+            internalCounter = 0;
+            internalDeviceScanCounter = 0;
+            isScanNewDevices = false;
+            isStarting = false;
+            isShuttingDown = false;
+            isRunning = false;
         }
 
         public IEnumerator Start()
@@ -72,6 +92,7 @@ namespace ROSBoard
             isStarting = true;
             isShuttingDown = false;
             InitMe();
+            isRunning = true;
 
             while (!isShuttingDown)
             {
@@ -88,6 +109,7 @@ namespace ROSBoard
             }
 
             ShutdownDevices();
+            CleanUp();
         }
 
         private void ShutdownDevices()
@@ -95,6 +117,8 @@ namespace ROSBoard
             for (int i = 0; i < registeredDevices.Count; i++)
             {
                 registeredDevices[i].Shutdown();
+                registeredDevices[i] = null;
+                registeredDevicesType[i] = null;
             }
         }
 

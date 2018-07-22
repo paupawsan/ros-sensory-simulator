@@ -41,7 +41,9 @@ namespace ROSBoard
             //Get program loop to simulate system board is turned on
             IEnumerator programLoop = m_systemBoard.Start();
 
+            //Application level new devices listeners
             m_systemBoard.OnNewDeviceRegistered += OnNewDeviceRegistered;
+            
             while (programLoop.MoveNext())
             {
                 //Simulate system shutdown after SHUTDOWN_TIME clock reached
@@ -57,11 +59,17 @@ namespace ROSBoard
         {
             Console.WriteLine("PortID" + portID + " registered!");
             MemoryBlock.PortMemoryUpdateEvent.OnInDataAnalogUpdated += OnInDataAnalogUpdated;
+            MemoryBlock.PortMemoryUpdateEvent.OnInDataDigitalUpdated += OnInDataDigitalUpdated;
         }
 
         static void OnInDataAnalogUpdated(int portID, float data)
         {
             Console.WriteLine(string.Format("Received analogData: portID:{0} data:{1} AnalogIn", portID, data));
+        }
+        
+        static void OnInDataDigitalUpdated(int portID, int data)
+        {
+            Console.WriteLine(string.Format("Received digitalData: portID:{0} data:{1} DigitalIn", portID, data));
         }
     }
 }

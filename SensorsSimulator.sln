@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ROSBoard", "ROSBoard\ROSBoa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalogOneSensor", "AnalogOneSensor\AnalogOneSensor.csproj", "{126F9247-C256-436F-A711-5B2676E7FEDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalSensor", "DigitalSensor\DigitalSensor.csproj", "{6C9F453B-53E9-407B-851F-98DED4CEF47D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{126F9247-C256-436F-A711-5B2676E7FEDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{126F9247-C256-436F-A711-5B2676E7FEDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{126F9247-C256-436F-A711-5B2676E7FEDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C9F453B-53E9-407B-851F-98DED4CEF47D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C9F453B-53E9-407B-851F-98DED4CEF47D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C9F453B-53E9-407B-851F-98DED4CEF47D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C9F453B-53E9-407B-851F-98DED4CEF47D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

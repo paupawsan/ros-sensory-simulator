@@ -75,3 +75,5 @@ ROSBoard/obj
 ROSCore/bin
 ROSCore/obj
 AnalogOneSensor/bin
+DigitalSensor/bin
+DigitalSensor/obj
