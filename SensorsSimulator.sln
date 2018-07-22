@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ROSCore", "ROSCore\ROSCore.csproj", "{38F420FA-CFE8-49D7-A991-732ADCD0F85F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ROSBoard", "ROSBoard\ROSBoard.csproj", "{4A23E510-8A08-4510-85F2-679299C25E7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalogOneSensor", "AnalogOneSensor\AnalogOneSensor.csproj", "{126F9247-C256-436F-A711-5B2676E7FEDB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38F420FA-CFE8-49D7-A991-732ADCD0F85F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38F420FA-CFE8-49D7-A991-732ADCD0F85F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38F420FA-CFE8-49D7-A991-732ADCD0F85F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38F420FA-CFE8-49D7-A991-732ADCD0F85F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A23E510-8A08-4510-85F2-679299C25E7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A23E510-8A08-4510-85F2-679299C25E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A23E510-8A08-4510-85F2-679299C25E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A23E510-8A08-4510-85F2-679299C25E7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{126F9247-C256-436F-A711-5B2676E7FEDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{126F9247-C256-436F-A711-5B2676E7FEDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{126F9247-C256-436F-A711-5B2676E7FEDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{126F9247-C256-436F-A711-5B2676E7FEDB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
