@@ -34,36 +34,32 @@ namespace AnalogOneSensor
         const int DATA_UPDATE_FREQUENCY = 20000;
         private PortMemoryBlock allocatedPortMemory;
         
-        /// <summary>
-        /// Will be virtually initiated by system board
-        /// </summary>
-        /// <param name="allocatedMemory"></param>
         public void Start(PortMemoryBlock allocatedMemory)
         {
             Console.WriteLine("_pLog_ {0} [{1}@{2}] {3}", DateTime.UtcNow.Ticks, this.GetType(),
                               MethodBase.GetCurrentMethod().ToString(), string.Format("{0}", "Starting"));
+            
+            // Store allocated memory
             allocatedPortMemory = allocatedMemory;
         }
 
+        
         public void Shutdown()
         {
             Console.WriteLine("_pLog_ {0} [{1}@{2}] {3}", DateTime.UtcNow.Ticks, this.GetType(),
                               MethodBase.GetCurrentMethod().ToString(), string.Format("{0}", "Shutdown"));
         }
 
-        /// <summary>
-        /// This will be virtually called by System Board.
-        /// </summary>
-        /// <param name="counter"></param>
         public void OnInternalClockUpdate(ulong counter)
         {
-            // Console.WriteLine("_pLog_ {0} [{1}@{2}] {3}", DateTime.UtcNow.Ticks, this.GetType(),
-            //                   MethodBase.GetCurrentMethod().ToString(), string.Format("Clock counter:{0}", counter));
+            //Simulate analog sensor data write on each DATA_UPDATE_FREQUENCY interval
             if (counter % DATA_UPDATE_FREQUENCY == 0)
             {
                 allocatedPortMemory.AnalogIn = MathF.Sin(counter);
+                
+                //Set the AnalogIn memory block as dirty so that the SystemBoard can raise event to all listeners application
                 allocatedPortMemory.DirtyTypes[(int) PortMemoryBlock.DirtyTypeEnum.AnalogIn] = true;
-                Console.WriteLine(string.Format("WaveDetector WriteData: portID:{0} data:{1} of AnalogIn", allocatedPortMemory.PortID, allocatedPortMemory.AnalogIn));
+                Console.WriteLine(string.Format("WaveDetectorSensor WriteData: portID:{0} data:{1} of AnalogIn", allocatedPortMemory.PortID, allocatedPortMemory.AnalogIn));
             }
         }
     }

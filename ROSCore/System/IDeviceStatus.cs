@@ -28,8 +28,21 @@ namespace ROSCore.System
 {
     public interface IDeviceStatus
     {
+        /// <summary>
+        /// Will be virtually initiated by system board during startup process
+        /// </summary>
+        /// <param name="allocatedMemory"></param>
         void Start(PortMemoryBlock allocatedMemory);
+        
+        /// <summary>
+        /// Will be virtually call by the system board during shutdown process
+        /// </summary>
         void Shutdown();
+        
+        /// <summary>
+        /// This will be virtually called by System Board.
+        /// </summary>
+        /// <param name="counter"></param>
         void OnInternalClockUpdate(ulong counter);
     }
 }

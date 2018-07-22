@@ -43,7 +43,8 @@ namespace ROSBoard
 
             //Application level new devices listeners
             m_systemBoard.OnNewDeviceRegistered += OnNewDeviceRegistered;
-            
+            MemoryBlock.PortMemoryUpdateEvent.OnInDataAnalogUpdated += OnInDataAnalogUpdated;
+            MemoryBlock.PortMemoryUpdateEvent.OnInDataDigitalUpdated += OnInDataDigitalUpdated;
             while (programLoop.MoveNext())
             {
                 //Simulate system shutdown after SHUTDOWN_TIME clock reached
@@ -58,8 +59,6 @@ namespace ROSBoard
         static void OnNewDeviceRegistered(int portID)
         {
             Console.WriteLine("PortID" + portID + " registered!");
-            MemoryBlock.PortMemoryUpdateEvent.OnInDataAnalogUpdated += OnInDataAnalogUpdated;
-            MemoryBlock.PortMemoryUpdateEvent.OnInDataDigitalUpdated += OnInDataDigitalUpdated;
         }
 
         static void OnInDataAnalogUpdated(int portID, float data)
